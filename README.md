@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Lean ATS (Lean Applicant Tracking System)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## アプリケーションの概要
 
-## Available Scripts
+Lean ATSは、採用プロセスを効率化するためのアプリケーションです。このシステムは、求人情報の管理、候補者の履歴書アップロード、AIによる候補者の評価を支援します。
 
-In the project directory, you can run:
+## 主な機能
 
-### `npm start`
+-   **求人情報管理**: 新しい求人情報を登録・管理できます。職種名、カテゴリー、仕事内容を詳細に記述できます。
+-   **候補者管理**: 候補者の履歴書をアップロードし、基本情報（氏名、メールアドレス）を登録できます。
+-   **AIによる評価**: アップロードされた履歴書と求人情報に基づいて、AIが候補者のスキルと適合性を評価します。
+-   **スコア表示**: AIによる評価結果をスコアとして表示し、候補者間の比較を容易にします。
+-   **推薦コメント**: AIが生成した推薦コメントを表示し、採用担当者の判断をサポートします。
+-   **多言語対応**: ユーザーインターフェースは日本語と英語に対応しています。
+-   **ダークモード**: ダークモードとライトモードを切り替えられます。
+-   **スナックバー通知**: 操作の成功・失敗を通知します。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 使い方
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1.  **ログイン**: Googleアカウントでログインします。
+2.  **求人情報の登録**:
+    -   画面上部の「求人情報を追加」フォームに、職種名、カテゴリー、仕事内容を入力します。
+    -   「登録」ボタンをクリックして求人情報を保存します。
+3.  **候補者の履歴書アップロード**:
+    -   画面下部の「応募者の履歴書をアップロード（評価のみ）」フォームに、候補者の氏名、メールアドレスを入力します。
+    -   「応募先の職種」を選択します。
+    -   履歴書（PDFまたはDOCX形式）をアップロードします。
+    -   「アップロードして評価」ボタンをクリックします。
+4.  **候補者の評価**:
+    -   登録された求人情報の下に、アップロードされた候補者の一覧が表示されます。
+    -   「候補者スコアを表示」ボタンをクリックすると、AIによる評価スコアと推薦コメントが表示されます。
+5.  **全候補者のAIスコアリング**:
+    -   画面下部の「全候補者のAIスコアリングを実行」ボタンをクリックすると、登録されているすべての候補者に対してAIスコアリングが実行されます。
 
-### `npm test`
+## 技術スタック
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   **フロントエンド**: React
+-   **UIライブラリ**: Material UI
+-   **バックエンド**: Node.js, Express
+-   **データベース**: Firebase Firestore
+-   **認証**: Firebase Authentication
+-   **AI**: OpenAI API
+-   **PDF解析**: pdfjs-dist
+-   **DOCX解析**: mammoth.js
 
-### `npm run build`
+## 開発環境の構築
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1.  **Node.jsのインストール**: Node.jsがインストールされていることを確認してください。
+2.  **Firebaseプロジェクトの作成**: Firebaseコンソールで新しいプロジェクトを作成し、Webアプリとして設定します。
+3.  **環境変数の設定**:
+    -   `.env`ファイルを作成し、以下の環境変数を設定します。
+        -   `REACT_APP_FIREBASE_KEY`: Firebase APIキー
+        -   `OPENAI_API_KEY`: OpenAI APIキー
+4.  **依存関係のインストール**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    npm install
+    ```
+5.  **開発サーバーの起動**:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```bash
+    npm start
+    ```
 
-### `npm run eject`
+    または
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ```bash
+    npm run dev
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ブラウザで `http://localhost:3000` にアクセスします。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 注意点
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-   OpenAI APIの利用にはAPIキーが必要です。
+-   Firebaseの設定が正しく行われていることを確認してください。
+-   履歴書のアップロードとAI評価には時間がかかる場合があります。
 
-## Learn More
+## ライセンス
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](LICENSE)
